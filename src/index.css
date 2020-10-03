@@ -7,7 +7,113 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body, #root {
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin: 60px 0px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.list {
+  width: 50%;
+  min-width: 350px;
+  margin: auto;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(153, 185, 143, 0.3);
+}
+
+li.done > span{
+  text-decoration: line-through;
+  color: grey;
+}
+
+li > span {
+  width: 82%;
+}
+
+li > input[type="checkbox"] {
+  margin-right: 15px;
+}
+
+li > button {
+  background-color: transparent;
+  margin: -20px 0px -20px 15px;
+}
+
+li > button > span {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  display: block;
+  color: #C4D7BE;
+  font-size: 50px;
+}
+
+li > button > span:hover {
+  color: tomato;
+}
+
+.new_todo {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 0px;
+}
+
+.new_todo > .plus {
+  color: whitesmoke;
+  font-size: 36px;
+  background-color: #6B8C85;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100%;
+}
+
+.new_todo > input[type="text"] {
+  flex-grow: 1;
+  border: none;
+  margin: 0px 20px;
+  height: 30px;
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid rgba(153, 185, 143, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 4px 1px rgba(153, 185, 143, 0.3);
+}
+
+.new_todo > input[type="text"]:focus {
+  outline: none;
+}
+
+.new_todo > .add {
+  height: 30px;
+  width: 50px;
+  background-color: rgba(107, 140, 133, 0.8);
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+.new_todo > .add:hover, .new_todo > .add:active {
+  background-color: rgba(107, 140, 133, 1);
 }
