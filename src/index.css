@@ -16,6 +16,7 @@ h1 {
   margin: 60px 0px;
   text-transform: uppercase;
   font-weight: 400;
+  color: #1B6F5F;
 }
 
 button {
@@ -40,6 +41,10 @@ li {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(153, 185, 143, 0.3);
+}
+
+li:hover {
+  box-shadow: rgba(153, 185, 143, 0.3) 1px 1px 4px 1px;
 }
 
 li.done > span{
@@ -76,17 +81,14 @@ li > button > span:hover {
 .new_todo {
   display: flex;
   align-items: center;
-  padding: 20px 20px 20px 0px;
+  padding: 20px 20px 0px 0px;
 }
 
 .new_todo > .plus {
-  color: whitesmoke;
+  color: #6B8C85;
   font-size: 36px;
-  background-color: #6B8C85;
+  font-weight: 100;
   height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  text-align: center;
   line-height: 100%;
 }
 
@@ -116,4 +118,12 @@ li > button > span:hover {
 
 .new_todo > .add:hover, .new_todo > .add:active {
   background-color: rgba(107, 140, 133, 1);
+}
+
+.error {
+  color: tomato;
+  font-size: 14px;
+  font-style: italic;
+  margin-left: 65px;
+  display: none;
 }

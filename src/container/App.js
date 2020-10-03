@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Todo from '../components/todo';
 import AddToDo from '../components/addToDo';
-//import { createUniqueID } from '../createUniqueId';
-
-import { handleAddTodoClick } from '../actions';
+import { handleAddTodo, handleDeleteTodo, handleCheckTodo } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,65 +12,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddTodoClick: () => dispatch(handleAddTodoClick(document.querySelector(".new_todo input").value))
+    onAddTodoClick: () => dispatch(handleAddTodo(document.querySelector(".new_todo input").value)),
+    onDeleteTodo: (event) => dispatch(handleDeleteTodo(event.currentTarget.parentNode.id)),
+    onCheckTodo: (event) => dispatch(handleCheckTodo(event.currentTarget.parentNode.id))
   }
 }
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [
-        {
-          id: "1",
-          text: "to-do",
-          status: "pending"
-        },
-        {
-          id: "2",
-          text: "to-do",
-          status: "done"
-        }
-      ]
-    }
-  }
-
-  // handleAddTodoClick = (new_todo) => {
-  //   this.setState(previousState => ({
-  //     todos: [...previousState.todos, {
-  //       id: createUniqueID(),
-  //       text: new_todo,
-  //       status: "pending"
-  //     }]
-  //   }))
-  // }
-
-  handleDeleteTodo = (event) => {
-    const id = event.currentTarget.parentNode.id;
-
-    this.setState(previousState => ({
-      todos: previousState.todos.filter(todo => todo.id !== id)
-    }))
-  }
-
-  handleCheckTodo = (event) => {
-    const id = event.currentTarget.parentNode.id;
-    this.setState(previousState => ({
-      todos: previousState.todos.map(todo => {
-        if (todo.id === id) {
-          let status = todo.status === "pending" ? "done" : "pending";
-          return {
-            id: todo.id,
-            text: todo.text,
-            status: status
-          };
-        }
-        else {
-          return todo;
-        }
-      })
-    }))
-  }
 
   render() {
     const todos = this.props.todos.map(todo => {
@@ -81,8 +27,8 @@ class App extends React.Component {
         status={todo.status} 
         key={todo.id} 
         id={todo.id}
-        onDeleteTodo={this.handleDeleteTodo}
-        onCheckTodo={this.handleCheckTodo}
+        onDeleteTodo={this.props.onDeleteTodo}
+        onCheckTodo={this.props.onCheckTodo}
       />;
     })
 
