@@ -3,7 +3,7 @@ import React from 'react';
 const AddToDo = ({ onAddTodoClick }) => {
 
     const handleAddTodoClick = () => {
-        onAddTodoClick();
+        onAddTodoClick(); 
         document.querySelector(".new_todo input").value = '';
     }
 
